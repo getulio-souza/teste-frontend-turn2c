@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.background-page {
+  background-color: #eeeeee;
+  height: 100vh;
+
+  .navbar {
+    background-color: #ffff;
+    height: 56px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    filter: drop-shadow(2px 4px 15px #00000010);
+
+    .race-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .race-select {
+        width: 186px;
+        height: 24px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        padding: 0px 10px;
+
+        .race-select-text {
+          padding-left: 10px;
+        }
+      }
+    }
+
+    .profile-container {
+      background-color:#D9D9D9;
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 12px;
+    }
+  }
+}
