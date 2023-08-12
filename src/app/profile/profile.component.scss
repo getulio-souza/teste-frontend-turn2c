@@ -10,12 +10,13 @@
     justify-content: flex-end;
     align-items: center;
     padding: 0px 20px;
-    filter: drop-shadow(2px 4px 15px #00000010);
+    box-shadow: inset 0 -4px 0 0 #e2dfdf;
   }
 
   .profile-container {
     background-color: #d9d9d9;
     display: flex;
+    align-items: center;
     gap: 10px;
     padding: 10px;
     border-radius: 12px;
@@ -25,10 +26,24 @@
     &:hover {
       opacity: 0.8;
     }
+
+    @media(max-width:900px){
+      background-color: transparent;
+    }
+
+    .profile-user{
+      @media(max-width:900px){
+        display: none;
+      }
+    }
   }
 
   .main-profile {
     display: flex;
+
+    @media(max-width:900px){
+      flex-direction: column;
+    }
   }
 
   .upload-photo-container {
@@ -39,6 +54,10 @@
     background-color: #fff;
     width: 50%;
     position: relative;
+
+     @media(max-width:900px){
+      width: auto;
+    }
 
     .upload-photo {
       display: flex;
@@ -51,7 +70,7 @@
       margin: 0 auto;
 
       .upload-photo-image {
-        width: 340px;
+        width: 80%;
         height: 340px;
         background-color: #d9d9d9;
         display: flex;
@@ -72,7 +91,7 @@
         width: 100%;
         height: 36px;
         border-radius: 16px;
-        margin-top: 20px;
+        margin: 20px 0px;
         cursor: pointer;
         transition: 0.5s;
         &:hover {
@@ -87,13 +106,24 @@
     flex-direction: column;
     gap: 10px;
     padding-left: 80px;
-    width: 70%;
+
+    @media(max-width:900px){
+      width: none;
+      display: flex;
+      align-items: center;
+      padding-left: 0;
+    }
 
     .gallery-container {
       display: flex;
       flex-wrap: wrap;
       padding-top: 20px;
       gap: 20px;
+
+      @media (max-width:900px){
+        display: grid;
+        grid-template-columns: 1fr;
+      }
 
       .single-card {
         border-radius: 16px;
@@ -105,4 +135,8 @@
       }
     }
   }
+}
+
+input[type="file"]{
+  // display: none;
 }
