@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.background-page {
+  background-color: #eeeeee;
+  height: 100%;
+
+  .navbar {
+    background-color: #ffff;
+    height: 56px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    filter: drop-shadow(2px 4px 15px #00000010);
+
+    .race-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .race-select {
+        width: 186px;
+        height: 24px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        padding: 0px 10px;
+
+        .race-select-text {
+          padding-left: 10px;
+        }
+      }
+    }
+
+    .profile-container {
+      background-color: #d9d9d9;
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 12px;
+      transition: 0.5s;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    gap: 20px;
+    padding: 20px;
+    width: 968px;
+    height: 100vh;
+    margin: 0 auto;
+
+    .single-card {
+      border-radius: 16px;
+      width: 230px;
+      height: 267px;
+
+      img {
+        width: 230px;
+        border-radius: 16px 16px 0px 0px;
+      }
+
+      .single-card-info {
+        background-color: #fff;
+        border-radius: 0px 0px 16px 16px;
+        padding: 10px;
+
+        h4 {
+          color: #222222;
+          font-weight: 900;
+        }
+
+        p {
+          color: #222222;
+          font-weight: 200;
+        }
+      }
+    }
+  }
+
+  .pagination-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    .page-buttons{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      background-color: #fff;
+      padding: 5px 0px;
+      border-radius: 8px;
+
+      .arrow-left{
+        padding-left: 10px;
+        width: 30px;
+        color: #222222;
+      }
+
+      .middle-bar{
+        height: 100%;
+      }
+
+      .arrow-right{
+        padding-right: 10px;
+        width: 30px;
+        color: #222222;
+      }
+    }
+  }
+}
