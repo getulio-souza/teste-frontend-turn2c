@@ -1,0 +1,28 @@
+.background-page {
+  background-color: #eeeeee;
+  height: 100%;
+
+  .navbar {
+    background-color: #ffff;
+    height: 56px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px 20px;
+    filter: drop-shadow(2px 4px 15px #00000010);
+  }
+
+  .profile-container {
+      background-color: #d9d9d9;
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 12px;
+      transition: 0.5s;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+}

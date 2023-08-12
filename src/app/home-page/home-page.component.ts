@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router'
+import { Router } from '@angular/router'
+
+type ContentView = 'home' | 'profile'
 
 interface cards{
   name: string,
@@ -13,12 +15,14 @@ interface cards{
 })
 export class HomePageComponent implements OnInit {
 
+  contentView!: ContentView;
+
   constructor(
     private router: Router
   ){}
 
   ngOnInit(): void {
-
+    this.handleNavigation();
   }
 
    //remover os objetos abaixo depois de fazer a conexao com a api
@@ -50,6 +54,17 @@ export class HomePageComponent implements OnInit {
   ];
 
   goToProfile() {
-    this.router.navigate(['/profile'])
+    this.router.navigate(['/profile']);
+    this.contentView = 'home'
+  }
+
+  handleNavigation() {
+    let currentPage = window.location.href;
+
+    if (currentPage.includes('home')) {
+      this.contentView = 'home';
+    } else {
+      this.contentView = 'profile'
+    }
   }
 }

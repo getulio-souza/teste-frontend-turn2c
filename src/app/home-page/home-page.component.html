@@ -30,7 +30,8 @@
           />
         </svg>
       </div>
-      <div>Perfil</div>
+       <div *ngIf="contentView == 'home'">{{'Perfil'}}</div>
+      <div *ngIf="contentView == 'profile'">{{'Perfil'}}</div>
     </article>
   </nav>
   <div>
