@@ -22,4 +22,45 @@
       <div>Perfil</div>
     </article>
   </nav>
+  <!-- main container -->
+  <section class="main-profile">
+    <article class="upload-photo-container">
+      <!-- upload photo -->
+      <div class="upload-photo">
+        <h4>Adicionar um cachorro</h4>
+        <div class="upload-photo-image">
+          <div>
+            <img src="../../assets/images/icons8-câmera-100.png" alt="">
+            <input type="file">
+          </div>
+        </div>
+        <button class="upload-photo-btn">Enviar foto</button>
+      </div>
+    </article>
+    <!-- gallery -->
+    <article class="gallery-background">
+      <div class="gallery-title">
+        <h4>Minhas imagens</h4>
+      </div>
+      <!-- photos -->
+      <div class="gallery-container">
+      <ng-container *ngFor="let card of cards">
+        <div class="single-card">
+          <img src="../assets//images/dog-image.jpg" alt="" />
+        </div>
+      </ng-container>
+    </div>
+    </article>
+
+    <!-- <div>
+      <h4>Minhas imagens</h4>
+    </div>
+    <article class="gallery-container">
+      <ng-container *ngFor="let card of cards">
+        <div class="single-card">
+          <img src="../assets//images/dog-image.jpg" alt="" />
+        </div>
+      </ng-container>
+    </article> -->
+  </section>
 </section>

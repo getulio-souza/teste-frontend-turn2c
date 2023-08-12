@@ -1,6 +1,7 @@
 .background-page {
   background-color: #eeeeee;
   height: 100%;
+  font-family: inter;
 
   .navbar {
     background-color: #ffff;
@@ -13,16 +14,95 @@
   }
 
   .profile-container {
-      background-color: #d9d9d9;
-      display: flex;
-      gap: 10px;
-      padding: 10px;
-      border-radius: 12px;
-      transition: 0.5s;
-      cursor: pointer;
+    background-color: #d9d9d9;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 12px;
+    transition: 0.5s;
+    cursor: pointer;
 
-      &:hover {
-        opacity: 0.8;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .main-profile {
+    display: flex;
+  }
+
+  .upload-photo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    width: 50%;
+    position: relative;
+
+    .upload-photo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 340px;
+      height: 445px;
+      text-align: center;
+      margin: 0 auto;
+
+      .upload-photo-image {
+        width: 340px;
+        height: 340px;
+        background-color: #d9d9d9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+      }
+
+      h4 {
+        font-size: 24px;
+        color: #222222;
+      }
+
+      .upload-photo-btn {
+        border: none;
+        background-color: #1ab0df;
+        color: #fff;
+        width: 100%;
+        height: 36px;
+        border-radius: 16px;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: 0.5s;
+        &:hover {
+          opacity: 0.8;
+        }
       }
     }
+  }
+
+  .gallery-background{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 80px;
+    width: 70%;
+
+    .gallery-container {
+      display: flex;
+      flex-wrap: wrap;
+      padding-top: 20px;
+      gap: 20px;
+
+      .single-card {
+        border-radius: 16px;
+
+        img {
+          width: 170px;
+          border-radius: 16px;
+        }
+      }
+    }
+  }
 }
