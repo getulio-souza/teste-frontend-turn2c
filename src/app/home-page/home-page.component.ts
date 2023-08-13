@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
+import { AppService } from '../app.service';
 
 type ContentView = 'home' | 'profile'
 
 interface cards{
   name: string,
-  info:string
+  bred_for:string
 }
 
 @Component({
@@ -18,40 +19,15 @@ export class HomePageComponent implements OnInit {
   contentView!: ContentView;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private appServive: AppService
   ){}
 
   ngOnInit(): void {
-    this.handleNavigation();
+    this.getAllDogs()
   }
 
-   //remover os objetos abaixo depois de fazer a conexao com a api
-  cards: cards[] = [
-    {
-      name: "Chinook",
-      info: "12 - 15 anos"
-    },
-    {
-      name: "Chinook",
-      info: "12 - 15 anos"
-    },
-    {
-      name: "Chinook",
-      info: "12 - 15 anos"
-    },
-    {
-      name: "Chinook",
-      info: "12 - 15 anos"
-    },
-    {
-      name: "Chinook",
-      info: "12 - 15 anos"
-    },
-    {
-      name: "Chinook",
-      info: "12 - 15 anos"
-    },
-  ];
+  cards: cards[] = [];
 
   goToProfile() {
     this.router.navigate(['/profile']);
@@ -67,4 +43,17 @@ export class HomePageComponent implements OnInit {
       this.contentView = 'profile'
     }
   }
+
+  //api integration
+
+  // HOME - falta passar o nome e raca do cachorro
+  getAllDogs() {
+    this.appServive.getAllDogsHome().subscribe((data) => {
+      console.log(data)
+      this.cards = data;
+    })
+  }
+
+  getByRace(){}
+
 }

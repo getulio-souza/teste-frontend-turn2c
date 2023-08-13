@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
+import { AppService } from '../app.service';
 
 interface cards{
   name: string,
@@ -15,41 +16,31 @@ export class ProfileComponent implements OnInit {
 
 
   constructor(
-    private router: Router
+    private router: Router,
+    private appService: AppService
   ){}
 
   ngOnInit() {
+    this.getAllDogs()
   }
 
-//remover os objetos abaixo depois de fazer a conexao com a api
 cards: cards[] = [
-  {
-    name: "Chinook",
-    info: "12 - 15 anos"
-  },
-  {
-    name: "Chinook",
-    info: "12 - 15 anos"
-  },
-  {
-    name: "Chinook",
-    info: "12 - 15 anos"
-  },
-  {
-    name: "Chinook",
-    info: "12 - 15 anos"
-  },
-  {
-    name: "Chinook",
-    info: "12 - 15 anos"
-  },
-  {
-    name: "Chinook",
-    info: "12 - 15 anos"
-  },
 ];
 
   goToHome() {
-    this.router.navigate(['/home'])
+    this.router.navigate(['/'])
+  }
+
+  getAllDogs() {
+    this.appService.getAllDogsProfile().subscribe((data) => {
+      console.log(data)
+      this.cards = data;
+    })
+  }
+
+  uploadNewDog() {
+    // this.appService.uploadDog().subscribe((data) => {
+    //   this.cards = data;
+    // })
   }
 }
