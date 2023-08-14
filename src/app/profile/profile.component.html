@@ -23,14 +23,16 @@
           <div>
             <img src="../../assets/images/icons8-câmera-100.png" alt="">
             <input
+            #imageInput
             type="file"
-
+            accept="image"
+            (change)="uploadNewDog(imageInput)"
             >
           </div>
         </div>
         <button
           class="upload-photo-btn"
-          (click)="uploadNewDog()"
+          (click)="uploadNewDog(imageInput)"
           >Enviar foto</button>
       </div>
     </article>

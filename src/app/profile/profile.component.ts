@@ -7,6 +7,10 @@ interface cards{
   info:string
 }
 
+class ImageSnippet {
+  constructor(public src: string, public file: File){}
+}
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -14,6 +18,7 @@ interface cards{
 })
 export class ProfileComponent implements OnInit {
 
+  selectedFile!: ImageSnippet;
 
   constructor(
     private router: Router,
@@ -38,9 +43,21 @@ cards: cards[] = [
     })
   }
 
-  uploadNewDog() {
-    // this.appService.uploadDog().subscribe((data) => {
-    //   this.cards = data;
-    // })
+  uploadNewDog(imageInput: any) {
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener('load',(event: any) => {
+
+      this.selectedFile = new ImageSnippet(event.target.result, file);
+
+      this.appService.uploadNewDog(this.selectedFile.file).subscribe((data: any) => {
+        console.log(data)
+        this.cards = data;
+      },
+      )
+    })
+
+    reader.readAsDataURL(file)
   }
 }
