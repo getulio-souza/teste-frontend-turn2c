@@ -4,19 +4,23 @@
     <!-- raca dropdown-->
     <article class="race-container">
       <div class="race-title">Raça:</div>
-      <select class="race-select" name="" id="">
-        <option class="race-select-text" value="0">Todas</option>
-        <option class="race-select-text" value="1">raça 1</option>
-        <option class="race-select-text" value="1">raça 2</option>
-        <option class="race-select-text" value="1">raça 3</option>
-        <option class="race-select-text" value="1">raça 4</option>
+      <select
+      #dogRaces
+      (ngModel)="selectValue"
+      (change)="onSelected(dogRaces.value)"
+      class="race-select"
+      >
+        <option default
+          *ngFor="let option of options"
+          class="race-select-text"
+          [value]="option">
+          {{option}}
+        </option>
+
       </select>
     </article>
     <!-- profile button -->
-    <article
-      class="profile-container"
-      (click)="goToProfile()"
-    >
+    <article class="profile-container" (click)="goToProfile()">
       <!-- icon-->
       <div>
         <svg
@@ -29,33 +33,41 @@
           />
         </svg>
       </div>
-       <div class="home-btn" *ngIf="contentView == 'home'">{{'Perfil'}}</div>
-      <div *ngIf="contentView == 'profile'">{{'Perfil'}}</div>
+      <div class="home-btn" *ngIf="contentView == 'home'">{{ "Perfil" }}</div>
+      <div *ngIf="contentView == 'profile'">{{ "Perfil" }}</div>
     </article>
   </nav>
   <div>
     <!-- cards -->
     <article class="cards-container">
-        <ng-container *ngFor="let card of cards">
+      <ng-container *ngFor="let card of cards">
         <div class="single-card">
           <img src="../assets//images/dog-image.jpg" alt="" />
           <div class="single-card-info">
-            <h4>{{card.name}} </h4>
-            <p>{{card.bred_for}} </p>
+            <h4>{{ card.name }}</h4>
+            <div>{{card.name}} </div>
+            <p>{{ card.life_span }}</p>
           </div>
         </div>
       </ng-container>
     </article>
 
-  <!-- pagination -->
-      <article class="pagination-container">
-          <div class="page-name">Página: 1</div>
-          <div class="page-buttons">
-            <img class="arrow-left" src="../assets//images//icons8-chevron-left-30.png" alt="">
-            <div class="middle-bar">|</div>
-            <img class="arrow-right" src="../assets//images//icons8-chevron-right-30.png" alt="">
-          </div>
-      </article>
+    <!-- pagination -->
+    <article class="pagination-container">
+      <div class="page-name">Página: 1</div>
+      <div class="page-buttons">
+        <img
+          class="arrow-left"
+          src="../assets//images//icons8-chevron-left-30.png"
+          alt=""
+        />
+        <div class="middle-bar">|</div>
+        <img
+          class="arrow-right"
+          src="../assets//images//icons8-chevron-right-30.png"
+          alt=""
+        />
+      </div>
+    </article>
   </div>
-
 </section>
