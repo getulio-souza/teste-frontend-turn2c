@@ -21,7 +21,7 @@ export class HomePageComponent implements OnInit {
   options: string[] = ["race 1", "race 2", "race 3"]
   cards: cards[] = [];
   races: races[] = [];
-  imageUrl: string
+  imageUrl: string = 'https://cdn2.thedogapi.com/images/hYsMv3NQi.jpg';
 
   constructor(
     private router: Router,
@@ -54,8 +54,6 @@ export class HomePageComponent implements OnInit {
     this.appServive.getAllDogsHome().subscribe((data) => {
       console.log(data);
       this.cards = data;
-      this.name = data;
-      this.life_span = data;
     })
   }
 

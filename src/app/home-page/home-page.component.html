@@ -42,7 +42,8 @@
     <article class="cards-container">
       <ng-container *ngFor="let card of cards">
         <div class="single-card">
-          <img src="../assets//images/dog-image.jpg" alt="" />
+          <!-- <img src="../assets//images/dog-image.jpg" alt="" /> -->
+          <img [src]="imageUrl" alt="">
           <div class="single-card-info">
             <h4>{{ card.name }}</h4>
             <div>{{card.name}} </div>

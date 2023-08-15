@@ -18,7 +18,7 @@ class ImageSnippet {
 })
 export class ProfileComponent implements OnInit {
 
-  selectedFile!: ImageSnippet;
+  selectedFile: ImageSnippet;
 
   constructor(
     private router: Router,

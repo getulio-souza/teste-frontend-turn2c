@@ -44,9 +44,9 @@ export class AppService {
   }
 
   //upload new dog
-  uploadNewDog(image: File): Observable<any>{
+  uploadNewDog(file: File): Observable<any>{
     const formData = new FormData();
-    formData.append('image', image);
+    formData.append('file', file);
     return this.http.post(this.apiUrl + `/v1/images/upload`, formData, {headers: this.header});
   }
 }
