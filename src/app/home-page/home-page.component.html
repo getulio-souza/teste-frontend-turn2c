@@ -41,8 +41,9 @@
     <article class="cards-container">
       <ng-container *ngFor="let dog of dogs";>
         <div class="single-card">
-          <img [src]=imageUrl alt="">
-          <span>{{dog.url}} </span>
+          <!-- <img [src]=imageUrl alt=""> -->
+          <img src={{dog.url}} alt="">
+          <!-- <span>{{dog.url}} </span> -->
           <div class="single-card-info">
             <h4>{{ dog.breeds[0].name }}</h4>
             <p>{{ dog.breeds[0].life_span }}</p>
