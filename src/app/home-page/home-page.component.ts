@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { AppService } from '../app.service';
-import { cards, races } from '../model/dogs';
-
-type ContentView = 'home' | 'profile'
+import {  Dogs, races } from '../model/dogs';
 
 @Component({
   selector: 'app-home-page',
@@ -12,16 +10,17 @@ type ContentView = 'home' | 'profile'
 })
 export class HomePageComponent implements OnInit {
 
-  contentView!: ContentView;
-  name: string = "";
-  life_span: string = "";
   selectRace = '';
   selectValue: any;
   selectValueContent: any;
+
   options: string[] = ["race 1", "race 2", "race 3"]
-  cards: cards[] = [];
+
+  dogs: Dogs[] = [];
+
   races: races[] = [];
-  imageUrl: string = 'https://cdn2.thedogapi.com/images/hYsMv3NQi.jpg';
+
+  imageUrl: string = '';
 
   constructor(
     private router: Router,
@@ -34,26 +33,17 @@ export class HomePageComponent implements OnInit {
 
   goToProfile() {
     this.router.navigate(['/profile']);
-    this.contentView = 'home'
-  }
-
-  handleNavigation() {
-    let currentPage = window.location.href;
-
-    if (currentPage.includes('home')) {
-      this.contentView = 'home';
-    } else {
-      this.contentView = 'profile'
-    }
   }
 
   //CRUD
 
-  // HOME - falta passar o nome e raca do cachorro
   getAllDogs() {
-    this.appServive.getAllDogsHome().subscribe((data) => {
-      console.log(data);
-      this.cards = data;
+    this.appServive.getAllDogsHome()
+      .subscribe((data) => {
+        this.dogs = data;
+        // console.log(data[0].breeds[0].name)
+        // console.log(data[0].breeds[0].life_span)
+        console.log(data[0].url)
     })
   }
 
@@ -66,7 +56,7 @@ export class HomePageComponent implements OnInit {
     if (this.selectRace === 'race 1' || 'race 2' || 'race 3') {
       this.appServive.getDogByRace(id).subscribe((data) => {
         // console.log(data)
-        this.races = data;
+        // this.races = data;
       })
     }
   }
